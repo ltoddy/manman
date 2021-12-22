@@ -2,6 +2,13 @@
 name = "manman"
 version = "0.1.0"
 edition = "2021"
+authors = ["ltoddy <taoliu0509@gmail.com>"]
+license = "MIT"
+homepage = "https://github.com/ltoddy/manman"
+repository = "https://github.com/ltoddy/manman"
+documentation = "https://docs.rs/manman"
+readme = "README.md"
+description = "setup the on-line manual pages"
 
 [dependencies]
 libc = "0.2"
