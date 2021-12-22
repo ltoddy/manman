@@ -8,6 +8,6 @@ setup the on-line manual pages
 
 ```rust
 fn main() {
-    manman::setup("my-command", "man/my-command.p1")
+    manman::setup("my-command", "man/my-command.1")
 }
 ```

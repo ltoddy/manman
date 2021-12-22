@@ -17,7 +17,8 @@ fn setup_impl(command: &str, filename: &Path) -> Result<()> {
     if !man_directory.is_dir() {
         fs::create_dir_all(&man_directory)?;
     }
-    let manual = man_directory.join(command);
+    let mut manual = man_directory.join(command);
+    manual.set_extension("1");
     fs::copy(filename, manual)?;
     Ok(())
 }
