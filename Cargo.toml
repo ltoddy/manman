@@ -9,6 +9,3 @@ repository = "https://github.com/ltoddy/manman"
 documentation = "https://docs.rs/manman"
 readme = "README.md"
 description = "setup the on-line manual pages"
-
-[dependencies]
-libc = "0.2"
