@@ -1,4 +1,3 @@
-use std::env;
 use std::fs;
 use std::io;
 use std::path::{Path, PathBuf};
@@ -11,18 +10,13 @@ where
 }
 
 fn setup_impl(command: &str, filename: &Path) -> io::Result<()> {
-    let home_directory = home_dir().expect("can't find $HOME directory");
-    let man_directory = home_directory.join(".local/share/man/man1");
-    if !man_directory.is_dir() {
-        fs::create_dir_all(&man_directory)?;
+    let home_dir = PathBuf::from(env!("HOME"));
+    let man1_dir = home_dir.join(".local/share/man/man1");
+    if !man1_dir.is_dir() {
+        fs::create_dir_all(&man1_dir)?;
     }
-    let mut manual = man_directory.join(command);
+    let mut manual = man1_dir.join(command);
     manual.set_extension("1");
     fs::copy(filename, manual)?;
     Ok(())
-}
-
-#[inline]
-fn home_dir() -> Option<PathBuf> {
-    env::var_os("HOME").map(PathBuf::from)
 }
